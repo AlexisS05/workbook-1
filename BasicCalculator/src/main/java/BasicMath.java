@@ -8,7 +8,7 @@ public class BasicMath {
         System.out.print("Enter the second number: ");
         double num2 = scanner.nextInt();
 
-        System.out.print("Please select an option: ");
+        System.out.print("Please select an option: \n");
 
         double result = 0;
 
