@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
 public class MathApp {
     public static void main(String[] args) {
         double pricePerPound = 1.5;
@@ -12,6 +14,7 @@ public class MathApp {
         System.out.printf("Your value is $  %8.2f %8.3f\n", answer, answer2);
         System.out.println("Hello, my name is 0'Leary'");
         System.out.println("--------------------Exercises-------------------");
+
 
         int bobSalary = 50000;
         int garySalary = 70000;
@@ -34,10 +37,11 @@ public class MathApp {
 
         final int X1 = 5;
         final int X2 = 85;
-        final int Y1 = 15;
+        final int Y1 = 10;
         final int Y2 = 50;
+        final int POW = 2;
 
-        final double distance = Math.sqrt(Math.pow(X2 - X1, 2) + Math.pow(Y2 - Y1, 2));
+        final double distance = Math.sqrt(Math.pow(X2 - X1, POW) + Math.pow(Y2 - Y1, POW));
         System.out.printf("This is the distance: %.2f\n", + distance);
 
         double absNum = -3.8;
@@ -46,5 +50,46 @@ public class MathApp {
 
         double random = Math.random();
         System.out.printf("\nThis is a random number: " + random);
+
+        double distance2 = calculateDistanceBetween(85,5,50,10);
+        System.out.printf("\nThis is the distance: %.2f\n", + distance2);
+
+        int num = 42;
+        double pi = 3.14159;
+        String name = "Alice";
+        char grade = 'A';
+        boolean isEnrolled = true;
+
+        String formatted = String.format("Number: %d, Pi: %f, Name: %s, Grade: %c, Is Enrolled %b", num, pi, name, grade, isEnrolled);
+        System.out.println(formatted);
+
+        Scanner scanner = new Scanner(System.in);
+
+        double inputValue = printPromptScreen("Please enter a floating-point number");
+        System.out.println(inputValue);
+
+        System.out.println("Please enter your name: ");
+        String inputString = scanner.nextLine();
+        System.out.println(inputString);
+
+        if(inputString.equals("Paul")){
+            System.out.println("Go away, Paul");
+        } else {
+            System.out.println("Hello " + inputString);
+        }
+
+    }
+
+    public static double calculateDistanceBetween(double x2, double x1, double y2, double y1) {
+       return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    }
+
+    public static double printPromptScreen(String prompt) {
+        double value;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(prompt + " : ");
+        value = scanner.nextDouble();
+        scanner.nextLine();
+        return value;
     }
 }
