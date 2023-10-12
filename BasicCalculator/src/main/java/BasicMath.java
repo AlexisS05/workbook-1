@@ -3,15 +3,11 @@ import java.util.Scanner;
 public class BasicMath {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the first number: ");
-        double num1 = scanner.nextInt();
-        System.out.print("Enter the second number: ");
-        double num2 = scanner.nextInt();
 
-        System.out.print("Please select an option: \n");
+        double num1 = getDoubleInput("Enter the first number: ");
+        double num2 = getDoubleInput("Enter the second number: ");
 
         double result = 0;
-
         boolean done = false;
         while (!done) {
             System.out.println("Possible calculations: \n" + "(A)dd\n" + "(S)ubtract\n" + "(M)ultiply\n" + "(D)ivide\n");
@@ -40,5 +36,19 @@ public class BasicMath {
             }
         }
         System.out.println("Result: " + result);
+    }
+    static double getDoubleInput(String msg) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(msg);
+        double input = scanner.nextDouble();
+        scanner.nextLine();
+        return input;
+    }
+
+    static char getCharInput(String msg) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(msg);
+        String input = scanner.nextLine();
+        return input.charAt(0);
     }
 }
